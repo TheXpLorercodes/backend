@@ -1,11 +1,10 @@
-# nixpacks.toml
-
-[phases.setup]
-# This tells Railway to install PostgreSQL development libraries and a C compiler
-# which are needed to build the psycopg2-binary package.
-nixPkgs = ["...", "postgresql", "gcc"]
-
-[start]
-# This command will be used to start your application
-# It's a good practice to define it here.
-cmd = "gunicorn BookNexus.wsgi:application"
+    # nixpacks.toml
+    
+    [phases.setup]
+    # This tells Railway to install the system libraries needed to build your Python packages
+    nixPkgs = ["postgresql", "gcc"]
+    
+    [start]
+    # This is the command Railway will run to start your server AFTER the build is complete
+    cmd = "gunicorn BookNexus.wsgi:application"
+    
